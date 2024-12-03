@@ -13,12 +13,9 @@ export default function Login() {
 
       <SigninForm />
 
-      <p className="mt-8">
+      <p className="mt-8 text-white/50">
         Ainda não possui uma conta?{" "}
-        <Link
-          href={"/signup"}
-          className="underline underline-offset-2 hover:opacity-80"
-        >
+        <Link href={"/signup"} className="text-white hover:opacity-95">
           Cadastre-se
         </Link>
       </p>
