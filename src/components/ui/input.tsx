@@ -20,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={twMerge(
-          "w-full h-10 p-2 flex items-center gap-2 rounded-full border outline-2 outline-[#85A98F] focus-within:outline focus-within:border-none",
+          "w-full h-12 p-4 flex items-center gap-2 rounded-full border outline-2 outline-[#85A98F] focus-within:outline focus-within:border-none",
           className
         )}
       >
