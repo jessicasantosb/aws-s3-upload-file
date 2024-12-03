@@ -9,7 +9,7 @@ export default function Register() {
         <Logo size={56} />
       </div>
 
-      <h1 className="mt-10 text-2xl">Entre na sua conta</h1>
+      <h1 className="mt-10 text-2xl">Crie a sua conta</h1>
 
       <SignupForm />
 
