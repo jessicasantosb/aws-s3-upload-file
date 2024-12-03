@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-  "w-full flex items-center justify-center whitespace-nowrap rounded-xl hover:opacity-80",
+  "w-full flex items-center justify-center whitespace-nowrap rounded-full hover:opacity-80",
   {
     variants: {
       variant: {
