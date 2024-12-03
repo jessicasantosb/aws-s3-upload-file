@@ -1,34 +1,45 @@
 "use client";
 
-import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  IconDefinition,
+} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { forwardRef, InputHTMLAttributes, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-type InputProps = InputHTMLAttributes<HTMLInputElement>;
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  icon?: IconDefinition;
+};
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ type = "text", className, ...props }, ref) => {
+  ({ type = "text", icon, className, ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(true);
 
     return (
       <div
         className={twMerge(
-          "w-full h-10 p-2 flex items-center rounded-xl border outline-2 outline-[#85A98F] focus-within:outline bg-white text-black",
+          "w-full h-10 p-2 flex items-center gap-2 rounded-xl border outline-2 outline-[#85A98F] focus-within:outline focus-within:border-none",
           className
         )}
       >
+        {icon && (
+          <FontAwesomeIcon icon={icon} className="size-4 text-white/40" />
+        )}
+
         <input
           ref={ref}
           type={showPassword ? type : "text"}
           {...props}
-          className="flex-1 outline-none"
+          className="flex-1 outline-none bg-transparent"
         />
+
         {type === "password" && (
           <FontAwesomeIcon
             icon={showPassword ? faEye : faEyeSlash}
             onClick={() => setShowPassword(!showPassword)}
-            className="size-6 text-black cursor-pointer"
+            className="size-5  cursor-pointer"
           />
         )}
       </div>
