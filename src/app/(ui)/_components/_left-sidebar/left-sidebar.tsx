@@ -1,8 +1,11 @@
 import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 
-import { NavItem } from "@/app/(ui)/_components/_left-sidebar/nav-item";
+import {
+  NavItem,
+  NavLogout,
+  NavMyProfile,
+} from "@/app/(ui)/_components/_left-sidebar";
 import { Logo } from "@/components/logo";
-import { NavLogout } from "./nav-logout";
 
 export function LeftSidebar() {
   return (
@@ -18,6 +21,7 @@ export function LeftSidebar() {
 
       <div className="mb-6 flex flex-col gap-4">
         <NavLogout />
+        <NavMyProfile />
       </div>
     </aside>
   );
