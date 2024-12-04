@@ -1,7 +1,8 @@
 import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 
-import { NavItem } from "@/app/(ui)/_components/nav-item";
+import { NavItem } from "@/app/(ui)/_components/_left-sidebar/nav-item";
 import { Logo } from "@/components/logo";
+import { NavLogout } from "./nav-logout";
 
 export function LeftSidebar() {
   return (
@@ -14,7 +15,10 @@ export function LeftSidebar() {
           <NavItem href="/profile" icon={faUser} label="Meu perfil" />
         </nav>
       </div>
-      <div>...</div>
+
+      <div className="mb-6 flex flex-col gap-4">
+        <NavLogout />
+      </div>
     </aside>
   );
 }

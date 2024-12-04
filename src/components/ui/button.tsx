@@ -8,7 +8,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-[#85A98F]",
-        outline: "border border-2 bg-white text-black hover:bg-black/10",
+        outline: "bg-transparent",
         error: "bg-red-500",
         success: "bg-green-500",
       },
@@ -29,9 +29,10 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ type = "button", variant, size, className, ...props }) => {
+  ({ type = "button", variant, size, className, ...props }, ref) => {
     return (
       <button
+        ref={ref}
         type={type}
         {...props}
         className={twMerge(buttonVariants({ variant, size, className }))}
