@@ -4,7 +4,7 @@ export const user: UserProps = {
   slug: "jessicasantosb",
   name: "Jessica Bandeira",
   avatar:
-    "https://www.freepik.com/free-vector/illustration-user-avatar-icon_2606573.htm#fromView=search&page=2&position=7&uuid=1bcdcbc3-39fa-4413-a61d-e199691bbd77",
+    "https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5908.jpg?t=st=1733327709~exp=1733331309~hmac=c1eec64724fc64156ccab749e18f098b984ea3cdea03b5dda159618c8296cfd8&w=740",
   cover:
     "https://www.freepik.com/free-vector/beautiful-wavy-background_7248973.htm#fromView=search&page=1&position=1&uuid=daa6b856-8ce8-4df9-afd3-993cdbf43049",
   bio: "Creative Web Developer",
