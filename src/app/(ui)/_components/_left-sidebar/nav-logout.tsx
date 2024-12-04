@@ -13,10 +13,10 @@ export function NavLogout() {
     <Button
       onClick={() => replace("/signin")}
       variant={"outline"}
-      className="flex items-center justify-start gap-6 opacity-50 hover:opacity-100"
+      className="p-0 flex items-center justify-start gap-6 opacity-50 hover:opacity-100"
     >
       <FontAwesomeIcon icon={faArrowRightFromBracket} className="size-6" />
-      Logout
+      Sair
     </Button>
   );
 }
