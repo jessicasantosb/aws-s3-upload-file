@@ -1,1 +1,2 @@
-export * from "./right-sidebar";
+export * from "./sidebar";
+export * from "./trading-area";
