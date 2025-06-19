@@ -1,7 +1,6 @@
-import { ReactNode } from "react";
-
 import { LeftSidebar } from "@/app/(ui)/_components/_left-sidebar";
 import { RightSidebar } from "@/app/(ui)/_components/_right-sidebar";
+import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
