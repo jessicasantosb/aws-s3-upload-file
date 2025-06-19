@@ -4,5 +4,5 @@ import { twMerge } from "tailwind-merge";
 type LabelProps = LabelHTMLAttributes<HTMLLabelElement>;
 
 export function Label({ className, ...props }: LabelProps) {
-  return <label className={twMerge("text-gray-700", className)} {...props} />;
+  return <label className={twMerge("text-gray-400", className)} {...props} />;
 }
