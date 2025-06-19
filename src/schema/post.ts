@@ -1,7 +1,10 @@
 import { ACCEPTED_TYPES, MAX_FILE_SIZE } from "@/utils/fileConstants";
 import { z } from "zod";
 
-export const fileSchema = z.object({
+export const postSchema = z.object({
+  text: z
+    .string()
+    .max(255, { message: "O texto deve ter no máximo 255 caracteres" }),
   file: z
     .custom<FileList>((value) => value instanceof FileList, {
       message: "Envie um arquivo válido",
@@ -17,4 +20,4 @@ export const fileSchema = z.object({
     }),
 });
 
-export type FileFormData = z.infer<typeof fileSchema>;
+export type PostFormData = z.infer<typeof postSchema>;

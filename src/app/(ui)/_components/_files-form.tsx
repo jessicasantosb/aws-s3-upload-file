@@ -4,7 +4,8 @@ import { FilePreview } from "@/components/file-preview";
 import { Form } from "@/components/form";
 import { Button } from "@/components/ui";
 import { InputFile } from "@/components/ui/input-file";
-import { FileFormData, fileSchema } from "@/schema/file";
+import { Textarea } from "@/components/ui/textarea";
+import { PostFormData, postSchema } from "@/schema/post";
 import { ACCEPTED_TYPES } from "@/utils/fileConstants";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
@@ -15,16 +16,21 @@ export function FilesForm() {
 
   const {
     control,
+    register,
     watch,
     handleSubmit,
     formState: { isSubmitting, errors },
-  } = useForm<FileFormData>({
-    resolver: zodResolver(fileSchema),
+  } = useForm<PostFormData>({
+    resolver: zodResolver(postSchema),
     mode: "onChange",
   });
 
   const files = watch("file");
   const file = files?.[0];
+
+  const onSubmit = async (post: PostFormData) => {
+    console.log("Post:", post);
+  };
 
   useEffect(() => {
     const files = watch("file");
@@ -42,12 +48,9 @@ export function FilesForm() {
     };
   }, [watch("file")]);
 
-  const onSubmit = async (data: FileFormData) => {
-    console.log("Arquivo:", data.file[0]);
-  };
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+      <Textarea {...register("text")} />
       <Controller
         name="file"
         control={control}
@@ -62,7 +65,7 @@ export function FilesForm() {
 
       {fileUrl && file && <FilePreview file={file} fileUrl={fileUrl} />}
 
-      <Button type="submit" disabled={isSubmitting}>
+      <Button type="submit" disabled={isSubmitting} size={"lg"} radius={"sm"}>
         {isSubmitting ? "Postando..." : "Postar"}
       </Button>
 
