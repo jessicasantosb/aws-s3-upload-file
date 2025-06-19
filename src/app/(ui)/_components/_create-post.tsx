@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-export function FilesForm() {
+export function CreatePost() {
   const [fileUrl, setFileUrl] = useState<string | null>(null);
 
   const {
