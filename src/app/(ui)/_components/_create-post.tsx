@@ -2,9 +2,7 @@
 
 import { FilePreview } from "@/components/file-preview";
 import { Form } from "@/components/form";
-import { Button } from "@/components/ui";
-import { InputFile } from "@/components/ui/input-file";
-import { Textarea } from "@/components/ui/textarea";
+import { Button, InputFile, Textarea } from "@/components/ui";
 import { PostFormData, postSchema } from "@/schema/post";
 import { ACCEPTED_TYPES } from "@/utils/fileConstants";
 import { zodResolver } from "@hookform/resolvers/zod";
