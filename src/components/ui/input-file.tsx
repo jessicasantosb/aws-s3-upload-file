@@ -11,7 +11,7 @@ export const InputFile = forwardRef<HTMLInputElement, InputProps>(
         type={type}
         {...props}
         className={twMerge(
-          "p-4 rounded-full border outline-2 outline-[#85A98F]",
+          "p-2",
           className
         )}
       />
