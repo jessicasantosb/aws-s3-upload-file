@@ -5,9 +5,8 @@ import "./globals.css";
 const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Z",
-  description:
-    "Este é uma aplicação desenvolvida no curso de ReactJS da B7Web.",
+  title: "Upload Files to S3",
+  description: "Upload Files to S3 with Next.js and AWS",
 };
 
 export default function RootLayout({
