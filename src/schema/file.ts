@@ -3,14 +3,18 @@ import { z } from "zod";
 
 export const fileSchema = z.object({
   file: z
-    .instanceof(File)
-    .refine((file) => file.size <= MAX_FILE_SIZE, {
-      message: "File size must be less than 5MB",
+    .custom<FileList>((value) => value instanceof FileList, {
+      message: "Envie um arquivo válido",
     })
-    .refine(
-      (file) => ACCEPTED_TYPES.includes(file?.type),
-      "Only .jpg, .jpeg, .png, .webp, gif, svg and mp4 formats are supported."
-    ),
+    .refine((files) => files.length > 0, {
+      message: "Selecione um arquivo",
+    })
+    .refine((files) => files[0]?.size <= MAX_FILE_SIZE, {
+      message: "Arquivo muito grande",
+    })
+    .refine((files) => ACCEPTED_TYPES.includes(files[0]?.type), {
+      message: "Tipo de arquivo inválido",
+    }),
 });
 
-export type File = z.infer<typeof fileSchema>;
+export type FileFormData = z.infer<typeof fileSchema>;
