@@ -14,11 +14,14 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@hookform/resolvers": "^5.1.1",
     "class-variance-authority": "^0.7.1",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "tailwind-merge": "^2.5.5"
+    "react-hook-form": "^7.58.1",
+    "tailwind-merge": "^2.5.5",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@types/node": "^20",
