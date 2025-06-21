@@ -1,9 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 export function NavLogout() {

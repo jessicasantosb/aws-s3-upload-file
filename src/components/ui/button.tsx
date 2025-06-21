@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-  "flex items-center justify-center whitespace-nowrap rounded-full hover:opacity-80",
+  "flex items-center justify-center whitespace-nowrap hover:opacity-80",
   {
     variants: {
       variant: {
@@ -17,10 +17,16 @@ const buttonVariants = cva(
         md: "h-9 px-4 text-md",
         lg: "h-12 px-4 text-lg",
       },
+      radius: {
+        none: "rounded-none",
+        sm: "rounded",
+        lg: "rounded-full",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "lg",
+      radius: "lg",
     },
   }
 );
