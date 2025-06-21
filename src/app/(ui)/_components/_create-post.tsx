@@ -1,14 +1,15 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+
 import { FilePreview } from "@/components/file-preview";
 import { Form } from "@/components/form";
 import { Button, InputFile, Textarea } from "@/components/ui";
 import { PostFormData, postSchema } from "@/schema/post";
 import { createPost } from "@/services/create-post";
 import { ACCEPTED_TYPES } from "@/utils/fileConstants";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
 
 export function CreatePost() {
   const [fileUrl, setFileUrl] = useState<string | null>(null);
@@ -25,21 +26,16 @@ export function CreatePost() {
   });
 
   const files = watch("file");
-  const file = files?.[0];
+  const file = files[0];
 
   const onSubmit = async (data: PostFormData) => {
-    const file = data.file?.[0];
-
-    if (!file) {
-      console.error("Nenhum arquivo enviado");
-      return;
-    }
+    const file = data.file[0];
 
     try {
       await createPost(file);
       setFileUrl(null);
     } catch (error) {
-      console.error("Erro on submitting post");
+      console.error("Erro on submitting post", error);
     }
   };
 
@@ -57,7 +53,7 @@ export function CreatePost() {
   }, [files]);
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={(e) => { void handleSubmit(onSubmit)(e); }}>
       <Textarea {...register("text")} />
       <Controller
         name="file"
@@ -65,14 +61,14 @@ export function CreatePost() {
         render={({ field }) => (
           <InputFile
             accept={ACCEPTED_TYPES.join(",")}
-            onChange={(e) => field.onChange(e.target.files)}
+            onChange={(e) => { field.onChange(e.target.files); }}
             multiple={false}
             ref={field.ref}
           />
         )}
       />
 
-      {fileUrl && file && <FilePreview file={file} fileUrl={fileUrl} />}
+      {fileUrl && <FilePreview file={file} fileUrl={fileUrl} />}
 
       <Button type="submit" disabled={isSubmitting} size={"lg"} radius={"sm"}>
         {isSubmitting ? "Postando..." : "Postar"}

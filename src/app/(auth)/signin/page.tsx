@@ -1,5 +1,7 @@
-import { Logo } from "@/components/logo";
 import Link from "next/link";
+
+import { Logo } from "@/components/logo";
+
 import { SigninForm } from "../_components/signin-form";
 
 export default function Login() {

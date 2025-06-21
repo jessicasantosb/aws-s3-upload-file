@@ -1,5 +1,6 @@
-import { ACCEPTED_TYPES, MAX_FILE_SIZE } from "@/utils/fileConstants";
 import { z } from "zod";
+
+import { ACCEPTED_TYPES, MAX_FILE_SIZE } from "@/utils/fileConstants";
 
 export const postSchema = z.object({
   text: z
@@ -12,10 +13,10 @@ export const postSchema = z.object({
     .refine((files) => files.length > 0, {
       message: "Selecione um arquivo",
     })
-    .refine((files) => files[0]?.size <= MAX_FILE_SIZE, {
+    .refine((files) => files[0].size <= MAX_FILE_SIZE, {
       message: "Arquivo muito grande",
     })
-    .refine((files) => ACCEPTED_TYPES.includes(files[0]?.type), {
+    .refine((files) => ACCEPTED_TYPES.includes(files[0].type), {
       message: "Tipo de arquivo inválido",
     }),
 });

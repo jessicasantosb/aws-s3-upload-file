@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-type NavItemProps = {
+interface NavItemProps {
   label: string;
   icon: IconDefinition;
   href: string;
   active?: boolean;
-};
+}
 
 export function NavItem({ label, icon, href, active }: NavItemProps) {
   const pathname = usePathname();

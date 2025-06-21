@@ -1,4 +1,4 @@
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -14,7 +14,7 @@ const buttonVariants = cva(
       },
       size: {
         sm: "h-7 px-2 text-xs",
-        md: "h-9 px-4 text-md",
+        md: "h-9 px-4 text-base",
         lg: "h-12 px-4 text-lg",
       },
       radius: {
