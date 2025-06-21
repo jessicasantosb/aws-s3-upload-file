@@ -5,9 +5,9 @@ import { RightSidebar } from "@/app/(ui)/_components/_right-sidebar";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <main className="min-h-screen flex justify-center mx-auto ">
+    <main className="mx-auto flex min-h-screen justify-center ">
       <LeftSidebar />
-      <section className="flex-1 max-w-lg">{children}</section>
+      <section className="max-w-lg flex-1">{children}</section>
       <RightSidebar />
     </main>
   );

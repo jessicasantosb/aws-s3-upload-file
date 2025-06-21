@@ -22,7 +22,7 @@ export function NavMyProfile() {
         <Link href={`/${slug}`} className="block truncate">
           {name}
         </Link>
-        <p className="text-sm truncate text-slate-300">@{slug}</p>
+        <p className="truncate text-sm text-slate-300">@{slug}</p>
       </div>
     </div>
   );

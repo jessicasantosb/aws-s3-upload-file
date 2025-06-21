@@ -32,7 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           type={showPassword ? type : "text"}
           {...props}
-          className="flex-1 outline-none bg-transparent"
+          className="flex-1 bg-transparent outline-none"
         />
 
         {type === "password" && (

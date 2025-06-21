@@ -4,7 +4,7 @@ module.exports = {
   plugins: ["@typescript-eslint", "tailwindcss", "import"],
   parser: "@typescript-eslint/parser",
   rules: {
-    "tailwindcss/classnames-order": "off",
+    "tailwindcss/classnames-order": "warn",
   },
   overrides: [
     {
@@ -25,7 +25,7 @@ module.exports = {
         "plugin:import/recommended",
       ],
       rules: {
-        "tailwindcss/classnames-order": "off",
+        "tailwindcss/classnames-order": "warn",
         "import/order": [
           "error",
           {
