@@ -8,6 +8,7 @@ export function SigninForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const handleSigin = () => {};
 
   return (
@@ -16,13 +17,13 @@ export function SigninForm() {
         type="email"
         placeholder="Digite seu email"
         value={email}
-        onChange={({ target }) => setEmail(target.value)}
+        onChange={({ target }) => { setEmail(target.value); }}
       />
       <Input
         type="password"
         placeholder="Digite sua senha"
         value={password}
-        onChange={({ target }) => setPassword(target.value)}
+        onChange={({ target }) => { setPassword(target.value); }}
       />
       <Button type="submit">entrar</Button>
     </form>

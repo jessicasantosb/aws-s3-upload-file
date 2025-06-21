@@ -1,4 +1,4 @@
-export type UserProps = {
+export interface UserProps {
   slug: string;
   name: string;
   avatar: string;
@@ -6,4 +6,4 @@ export type UserProps = {
   bio?: string;
   link?: string;
   postCount?: number;
-};
+}

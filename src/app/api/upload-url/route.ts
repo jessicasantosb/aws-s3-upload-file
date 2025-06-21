@@ -5,20 +5,20 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
-  const fileType = searchParams.get("fileType") || "application/octet-stream";
+  const fileType = searchParams.get("fileType") ?? "application/octet-stream";
 
-  const key = `${randomUUID()}`;
+  const key = randomUUID();
 
   const s3 = new S3Client({
-    region: process.env.AWS_BUCKET_REGION!,
+    region: process.env.AWS_BUCKET_REGION,
     credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY!,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+      accessKeyId: process.env.AWS_ACCESS_KEY,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     },
   });
 
   const command = new PutObjectCommand({
-    Bucket: process.env.AWS_BUCKET_NAME!,
+    Bucket: process.env.AWS_BUCKET_NAME,
     Key: key,
     ContentType: fileType,
   });

@@ -1,12 +1,11 @@
 import Image from "next/image";
 
-type FilePreviewProps = {
+interface FilePreviewProps {
   file: File;
   fileUrl: string;
-};
+}
 
 export function FilePreview({ file, fileUrl }: FilePreviewProps) {
-  if (!file) return null;
 
   return (
     <div className="mx-auto">

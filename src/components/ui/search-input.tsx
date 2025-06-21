@@ -6,19 +6,19 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { usePathname, useRouter } from "next/navigation";
 
-type SearchInputProps = {
+interface SearchInputProps {
   defaultValue?: string;
   hideOnSearch?: boolean;
-};
+}
 
 export function SearchInput({ defaultValue, hideOnSearch }: SearchInputProps) {
-  const [query, setQuery] = useState(defaultValue || "");
-  const { push } = useRouter();
+  const [query, setQuery] = useState(defaultValue ?? "");
+  const router = useRouter();
   const pathname = usePathname();
 
   const handleSearch = ({ code }: { code: string }) => {
     if (code.toLowerCase() !== "enter") return;
-    push(`/search?q=${encodeURIComponent(query)}`);
+    router.push(`/search?q=${encodeURIComponent(query)}`);
   };
 
   if (hideOnSearch && pathname === "/search") return null;
@@ -28,7 +28,9 @@ export function SearchInput({ defaultValue, hideOnSearch }: SearchInputProps) {
       icon={faMagnifyingGlass}
       placeholder="Buscar"
       value={query}
-      onChange={({ target }) => setQuery(target.value)}
+      onChange={({ target }) => {
+        setQuery(target.value);
+      }}
       onKeyUp={handleSearch}
     />
   );

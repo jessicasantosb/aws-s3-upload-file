@@ -38,7 +38,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {type === "password" && (
           <FontAwesomeIcon
             icon={showPassword ? faEye : faEyeSlash}
-            onClick={() => setShowPassword(!showPassword)}
+            onClick={() => { setShowPassword(!showPassword); }}
             className="size-5  cursor-pointer"
           />
         )}
