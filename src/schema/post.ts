@@ -1,5 +1,6 @@
-import { ACCEPTED_TYPES, MAX_FILE_SIZE } from "@/utils/fileConstants";
 import { z } from "zod";
+
+import { ACCEPTED_TYPES, MAX_FILE_SIZE } from "@/utils/fileConstants";
 
 export const postSchema = z.object({
   text: z

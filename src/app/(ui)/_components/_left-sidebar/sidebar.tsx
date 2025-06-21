@@ -1,10 +1,11 @@
+import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+
 import {
   NavItem,
   NavLogout,
   NavMyProfile,
 } from "@/app/(ui)/_components/_left-sidebar";
 import { Logo } from "@/components/logo";
-import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export function LeftSidebar() {
   return (

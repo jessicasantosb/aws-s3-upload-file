@@ -1,10 +1,10 @@
 "use client";
 
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { Input } from "@/components/ui/input";
-import { usePathname, useRouter } from "next/navigation";
 
 interface SearchInputProps {
   defaultValue?: string;

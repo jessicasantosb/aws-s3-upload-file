@@ -1,6 +1,7 @@
-import { user } from "@/data/user";
 import Image from "next/image";
 import Link from "next/link";
+
+import { user } from "@/data/user";
 
 export function NavMyProfile() {
   const { avatar, slug, name } = user;

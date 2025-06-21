@@ -1,14 +1,15 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+
 import { FilePreview } from "@/components/file-preview";
 import { Form } from "@/components/form";
 import { Button, InputFile, Textarea } from "@/components/ui";
 import { PostFormData, postSchema } from "@/schema/post";
 import { createPost } from "@/services/create-post";
 import { ACCEPTED_TYPES } from "@/utils/fileConstants";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
 
 export function CreatePost() {
   const [fileUrl, setFileUrl] = useState<string | null>(null);

@@ -1,5 +1,7 @@
-import { Logo } from "@/components/logo";
 import Link from "next/link";
+
+import { Logo } from "@/components/logo";
+
 import { SignupForm } from "../_components/signup-form";
 
 export default function Register() {
