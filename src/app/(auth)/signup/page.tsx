@@ -6,7 +6,7 @@ import { SignupForm } from "../_components/signup-form";
 
 export default function Register() {
   return (
-    <main className="max-w-lg mx-auto mt-12 px-6">
+    <main className="mx-auto mt-12 max-w-lg px-6">
       <div className="w-16">
         <Logo size={56} />
       </div>

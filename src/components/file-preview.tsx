@@ -9,7 +9,7 @@ export function FilePreview({ file, fileUrl }: FilePreviewProps) {
 
   return (
     <div className="mx-auto">
-      <div className="relative size-32 rounded overflow-hidden">
+      <div className="relative size-32 overflow-hidden rounded">
         {file.type.startsWith("image/") ? (
           <Image
             alt={file.name}
@@ -20,7 +20,7 @@ export function FilePreview({ file, fileUrl }: FilePreviewProps) {
           />
         ) : (
           <video
-            className="object-cover size-32"
+            className="size-32 object-cover"
             src={fileUrl}
             autoPlay
             loop

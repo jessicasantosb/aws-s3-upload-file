@@ -13,7 +13,7 @@ export function NavLogout() {
     <Button
       onClick={() => { route.replace("/signin"); }}
       variant={"outline"}
-      className="p-0 flex items-center justify-start gap-6 opacity-50 hover:opacity-100"
+      className="flex items-center justify-start gap-6 p-0 opacity-50 hover:opacity-100"
     >
       <FontAwesomeIcon icon={faArrowRightFromBracket} className="size-6" />
       Sair
