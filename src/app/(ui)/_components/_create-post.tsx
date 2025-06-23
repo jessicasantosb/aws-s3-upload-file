@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,10 +27,10 @@ export function CreatePost() {
   });
 
   const files = watch("file");
-  const file = files[0];
+  const file = files?.[0];
 
   const onSubmit = async (data: PostFormData) => {
-    const file = data.file[0];
+    const file = data.file?.[0];
 
     try {
       await createPost(file);
@@ -40,20 +41,25 @@ export function CreatePost() {
   };
 
   useEffect(() => {
-    const file = fileUrl && files instanceof FileList ? files[0] : null;
-    if (!file || !(file instanceof File)) return;
+    if (!file) {
+      setFileUrl(null);
+      return;
+    }
 
     const url = URL.createObjectURL(file);
     setFileUrl(url);
 
     return () => {
       URL.revokeObjectURL(url);
-      setFileUrl(null);
     };
-  }, [files]);
+  }, [file]);
 
   return (
-    <Form onSubmit={(e) => { void handleSubmit(onSubmit)(e); }}>
+    <Form
+      onSubmit={(e) => {
+        void handleSubmit(onSubmit)(e);
+      }}
+    >
       <Textarea {...register("text")} />
       <Controller
         name="file"
@@ -61,14 +67,16 @@ export function CreatePost() {
         render={({ field }) => (
           <InputFile
             accept={ACCEPTED_TYPES.join(",")}
-            onChange={(e) => { field.onChange(e.target.files); }}
+            onChange={(e) => {
+              field.onChange(e.target.files);
+            }}
             multiple={false}
             ref={field.ref}
           />
         )}
       />
 
-      {fileUrl && <FilePreview file={file} fileUrl={fileUrl} />}
+      {fileUrl && file && <FilePreview file={file} fileUrl={fileUrl} />}
 
       <Button type="submit" disabled={isSubmitting} size={"lg"} radius={"sm"}>
         {isSubmitting ? "Postando..." : "Postar"}
